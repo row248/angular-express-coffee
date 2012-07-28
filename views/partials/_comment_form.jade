@@ -1,0 +1,7 @@
+h4 Write a Comment
+form.well(novalidate, name='form')
+  label(for='name') Name
+  input.span3(ng-model='post.comment.name', name='name', type='text', placeholder='Type your name...', required='')
+  label(for='text') Content
+  textarea(ng-model='post.comment.text', name='text', placeholder='Type message...', required='')
+  button.btn.btn-primary(ng-click='saveComment()', type='submit', style='display:block', ng-disabled='form.$invalid') Add Comment

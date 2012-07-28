@@ -1,0 +1,14 @@
+form.form-horizontal
+  fieldset
+    legend Edit post
+    div.control-group
+      label.control-label(for='title') Title
+      div.controls
+        input.input-xlarge(ng-model='post.title', name='title', type='text')
+    div.control-group
+      label.control-label(for='content') Content
+      div.controls
+        textarea.input-xlarge(ng-model='post.content', name='content', rows='5')
+    div.form-actions
+      button.btn.btn-primary(ng-click='savePost()') Save
+      button.btn(ng-click='cancel()') Cancel

@@ -1,0 +1,9 @@
+section
+  h3 {{post.title}}
+  div {{post.content}}
+  div.form-actions
+    a.btn.btn-primary(href='/editPost/{{post._id}}') Edit
+    a.btn.btn-danger(href='/deletePost/{{post._id}}') Delete
+
+include _comments
+include _comment_form

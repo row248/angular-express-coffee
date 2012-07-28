@@ -1,0 +1,22 @@
+extends layout
+block body
+  div.navbar
+    div.navbar-inner.navbar-fixed-top
+      div.container
+        //- a.brand(href='/') Angular Node Blog
+        ul.nav
+          li
+            a(href='/') Home
+          li
+            a(href='/newPost') New post
+  div.container
+    header.jumbotron.subhead(id="overview")
+      h1 Angular Blog
+      //- p.lead This is a blog generally about Node and Rails and relative technologies
+    div(ng-view)
+  
+  // != js('app')
+  // != js('controllers')
+  // != js('directives')
+  // != js('filters')
+  // != js('services')

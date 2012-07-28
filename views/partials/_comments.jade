@@ -1,0 +1,21 @@
+h3 Comments
+div.comment-block(ng-repeat='comment in post.comments')
+  section.comment-body(id='comment-{{comment._id}}').span7
+    div.comment-user.cline
+      i.icon-user
+      span {{comment.name}}
+    
+    div.comment-content.cline
+      i.icon-comment
+      span(ng-hide="comment.edit", ng-model='comment.text') {{comment.text}}
+      div(ng-show="comment.edit")
+        .well.form-inline
+          textarea(ng-model='comment.text', name='text')
+          button.btn-primary.btn(type='submit', ng-click='changeComment(comment)') Save
+
+  div.pull-right
+    a(href='#', ng-click='deleteComment(comment)')
+      i.icon-remove
+  div.pull-right
+    a(href='#', ng-click='editComment(comment);$log.log(comment)')
+      i.icon-pencil.remove-comment
