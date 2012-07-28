@@ -1,21 +1,16 @@
-# Simple Blog based on Express Coffee Template
+# Simple Blog based on Express Coffee Template 4 (1.4)
 
-
-
-# Express Coffee Template 4 (1.4)
-
-This is a Node Express CoffeeScript Stack Template
-
-It comes ready to go with connect-assets that give you the option
-to use coffee-script and stylus for the client side.
+## 
 
 ## Technologies
-This is a template that can be used to create nodejs applications using 
 
-* Node v0.6.17
-* Express v3.0.0alpha4
+* Node v0.8.4
+* Express v3.0.0rc1
 * CoffeeScript! v1.3.3
-* Jade v0.26.0
+* Mongoose v2.7.2
+* Jade v0.27.0
+* Stylus v0.28.2
+* Bootstrap v2.0.4
 * Connect Assets v2.2.1
 
 ## Requirements
