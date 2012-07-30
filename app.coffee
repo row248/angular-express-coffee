@@ -1,6 +1,6 @@
 express = require 'express'
 stylus = require 'stylus'
-bootstrap = require 'bootstrap-stylus'
+# bootstrap = require 'bootstrap-stylus'
 assets = require 'connect-assets'
 
 routes = require './routes'
