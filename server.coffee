@@ -19,6 +19,7 @@ app.set 'view engine', 'jade'
 app.configure "development", ->
   app.use express.bodyParser()
   app.use express.methodOverride()
+  # app.use(express.compiler({ src : __dirname + '/public', enable: ['less']}));  
   app.use express.static(__dirname + '/public')
   app.use express.errorHandler(
     dumpExceptions: true
@@ -29,6 +30,7 @@ app.configure "development", ->
 app.configure "production", ->
   app.use express.errorHandler()
   db = mongoose.connect 'mongodb://alder:datura@ds035037.mongolab.com:35037/angular-blog'
+
 
 
  # Routes
