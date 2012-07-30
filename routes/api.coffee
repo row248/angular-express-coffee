@@ -69,10 +69,6 @@ exports.editComment = (req, res) ->
   Post.findById req.params.id, (err, post) ->
     if !err
       comment = post.comments.id(cid)
-      # for c in req.body.comments
-      #   do (c) ->
-      #     if c._id = cid
-      #     	comment.text = c.text
       comment.text = req.body.text
       post.save (err1) ->
         res.json post: post
