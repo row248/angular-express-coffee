@@ -3,7 +3,8 @@
   , "version": "1.4.1"
   , "private": true
   , "dependencies": {
-    "express": ">= 3.0.0beta1" 
+      "coffee-script": ">= 1.3.3"
+    , "express": ">= 3.0.0beta1" 
     , "mongoose": ">= 0.0.1"
     , "jade": ">= 0.26.0"
     , "connect-assets": ">= 2.2.1"
@@ -13,8 +14,7 @@
     "start": "node server.js",
     "test": "mocha --require should --compilers coffee:coffee-script --colors"
   }, "devDependencies": {
-    "coffee-script": ">= 1.3.1"
-    , "mocha": "*"
+      "mocha": "*"
     , "should": ">= 1.1.0"
     , "request": ">= 1.2.0"
     , "supervisor": "*"
