@@ -25,11 +25,11 @@ app.configure "development", ->
     dumpExceptions: true
     showStack: true
   )
-  db = mongoose.connect 'mongodb://alder:123456@ds035037.mongolab.com:35037/angular-blog'
+  db = mongoose.connect 'mongodb://user:user@ds035037.mongolab.com:35037/angular-blog'
 
 app.configure "production", ->
   app.use express.errorHandler()
-  db = mongoose.connect 'mongodb://alder:123456@ds035037.mongolab.com:35037/angular-blog'
+  db = mongoose.connect 'mongodb://user:user@ds035037.mongolab.com:35037/angular-blog'
 
 
 
