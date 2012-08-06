@@ -31,19 +31,42 @@ PostSchema = new Schema(
 
 mongoose.model "Comment", CommentSchema
 Comment = mongoose.model "Comment"
+exports.Comment = Comment
 
 mongoose.model "Post", PostSchema
 Post = mongoose.model "Post"
+exports.Post = Post
 
 
 exports.posts = (req, res) ->
   Post.find {}, (err, posts) ->
     res.json posts: posts
 
-
 exports.post = (req, res) ->
   Post.findById req.params.id, (err, post) ->
     res.json post: post
+
+exports.addPost = (req, res) ->
+  post = new Post(req.body)
+  post.save (err) ->
+    res.json post: post
+
+exports.editPost = (req, res) ->
+  Post.findById req.params.id, (err, post) ->
+    if !err
+      post.title = req.body.title
+      post.content = req.body.content
+      post.save (err1) ->
+        res.json post: post
+
+exports.deletePost = (req, res) ->
+  id = req.params.id
+  Post.remove {_id: id}, (err) ->
+    unless err
+      res.json true
+    else
+      res.json false
+
 
 exports.addComment = (req, res) ->
   Post.findById req.params.id, (err, post) ->
@@ -72,25 +95,3 @@ exports.editComment = (req, res) ->
       comment.text = req.body.text
       post.save (err1) ->
         res.json post: post
-
-exports.addPost = (req, res) ->
-  post = new Post(req.body)
-  post.save (err) ->
-    res.json post: post
-
-
-exports.editPost = (req, res) ->
-  Post.findById req.params.id, (err, post) ->
-    if !err
-      post.title = req.body.title
-      post.content = req.body.content
-      post.save (err1) ->
-        res.json post: post
-
-exports.deletePost = (req, res) ->
-  id = req.params.id
-  Post.remove {_id: id}, (err) ->
-    unless err
-      res.json true
-    else
-      res.json false

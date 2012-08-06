@@ -25,11 +25,11 @@ app.configure "development", ->
     dumpExceptions: true
     showStack: true
   )
-  db = mongoose.connect 'mongodb://alder:datura@ds035037.mongolab.com:35037/angular-blog'
+  db = mongoose.connect 'mongodb://alder:123456@ds035037.mongolab.com:35037/angular-blog'
 
 app.configure "production", ->
   app.use express.errorHandler()
-  db = mongoose.connect 'mongodb://alder:datura@ds035037.mongolab.com:35037/angular-blog'
+  db = mongoose.connect 'mongodb://alder:123456@ds035037.mongolab.com:35037/angular-blog'
 
 
 
@@ -49,8 +49,8 @@ app.put '/api/post/:id', api.editPost
 app.delete '/api/post/:id', api.deletePost 
 
 # redirect all others to the index (HTML5 history)
-app.get '*',  (req, res) ->
-  res.render "index"
+# app.get '*',  (req, res) ->
+#   res.render "index"
 
 # Define Port
 port = process.env.PORT or process.env.VMC_APP_PORT or 3000
