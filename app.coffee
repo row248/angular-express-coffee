@@ -1,6 +1,7 @@
 express = require 'express'
 http = require 'http'
 path = require 'path'
+less = require 'less'
 
 stylus = require 'stylus'
 assets = require 'connect-assets'
@@ -25,7 +26,7 @@ app.configure ->
   app.use express.cookieParser('652626bvhfdhghy52h5g')
   app.use express.session()
   app.use app.router
-  # app.use require('less-middleware')(src: __dirname + '/public')
+  # app.use require('less-middleware')(src: __dirname + '/assets')
   app.use express.static(path.join(__dirname, 'public'))
 
 
