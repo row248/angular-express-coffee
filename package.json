@@ -8,7 +8,6 @@
     , "mongoose": ">= 0.0.1"
     , "jade": ">= 0.26.0"
     , "connect-assets": ">= 2.2.1"
-    , "stylus": ">= 0.27.0"
     , "less": "*"
     , "markdown": ">= 0.3.3"
   }, "scripts": {
@@ -21,6 +20,6 @@
     , "supervisor": "*"
   }, 
   "engines": {
-    "node": "~0.6.x"
+    "node": ">= 0.6.x"
   }
 }
