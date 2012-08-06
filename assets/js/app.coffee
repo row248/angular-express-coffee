@@ -15,7 +15,8 @@ ReadPostCtrl = ($scope, $http, $routeParams, $log) ->
   $scope.comment = {}
   $http.get("/api/post/" + $routeParams.id).success (data) ->
     $scope.post = data.post
-    # $scope.post.comments 
+
+
   $scope.saveComment = ->
     $http.post('/api/post/' + $routeParams.id + '/newComment', $scope.post).success (data) ->
       $scope.post = data.post
