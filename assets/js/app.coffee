@@ -1,4 +1,4 @@
-"use strict"
+# "use strict"
 
 angular.module("myApp", [ "myApp.filters", "myApp.services", "myApp.directives" ]).config [ "$routeProvider", "$locationProvider", ($routeProvider, $locationProvider) ->
   $routeProvider.when("/",
