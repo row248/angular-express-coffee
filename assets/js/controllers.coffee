@@ -1,17 +1,15 @@
 "use strict"
 
-
 angular.module('myApp').controller 'IndexCtrl', ($scope, $http) ->
   $http.get("/api/posts").success (data, status, headers, config) ->
     $scope.posts = data.posts
 
 
-ReadPostCtrl = ($scope, $http, $routeParams, $log) ->
+angular.module('myApp').controller 'ReadPostCtrl', ($scope, $http, $routeParams, $log) ->
   $scope.post = {}
   $scope.comment = {}
   $http.get("/api/post/" + $routeParams.id).success (data) ->
     $scope.post = data.post
-
 
   $scope.saveComment = ->
     $http.post('/api/post/' + $routeParams.id + '/newComment', $scope.post).success (data) ->
@@ -33,8 +31,7 @@ ReadPostCtrl = ($scope, $http, $routeParams, $log) ->
 
 
 
-
-CreatePostCtrl = ($scope, $http, $location) ->
+angular.module('myApp').controller 'CreatePostCtrl', ($scope, $http, $location) ->
   $scope.post = {}
   $scope.savePost = ->
     $http.post("/api/post", $scope.post).success (data) ->
@@ -43,7 +40,7 @@ CreatePostCtrl = ($scope, $http, $location) ->
     $location.path "/"
 
 
-EditPostCtrl = ($scope, $http, $location, $routeParams) ->
+angular.module('myApp').controller 'EditPostCtrl', ($scope, $http, $location, $routeParams) ->
   $scope.post = {}
   $http.get("/api/post/" + $routeParams.id).success (data) ->
     $scope.post = data.post
@@ -55,7 +52,7 @@ EditPostCtrl = ($scope, $http, $location, $routeParams) ->
     $location.path "/"
 
 
-DeletePostCtrl = ($scope, $http, $location, $routeParams) ->
+angular.module('myApp').controller 'DeletePostCtrl', ($scope, $http, $location, $routeParams) ->
   $http.get("/api/post/" + $routeParams.id).success (data) ->
     $scope.post = data.post
   
@@ -64,5 +61,4 @@ DeletePostCtrl = ($scope, $http, $location, $routeParams) ->
       $location.url "/"
   $scope.cancel = ->
     $location.path "/"
-
 
