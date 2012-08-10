@@ -1,7 +1,7 @@
 express = require 'express'
 http = require 'http'
 path = require 'path'
-# less = require 'less'
+less = require 'less'
 
 stylus = require 'stylus'
 assets = require 'connect-assets'
@@ -13,7 +13,7 @@ mongoose = require 'mongoose'
 db = null
 app = express()
 
-app.use assets()
+# app.use assets()
 
 app.configure ->
   app.set 'port', process.env.PORT or 3000
@@ -26,7 +26,8 @@ app.configure ->
   app.use express.cookieParser('652626bvhfdhghy52h5g')
   app.use express.session()
   app.use app.router
-  # app.use require('less-middleware')(src: __dirname + '/assets')
+  app.use require('stylus').middleware(__dirname + '/public')
+    # app.use require('less-middleware')(src: __dirname + '/assets')
   app.use express.static(path.join(__dirname, 'public'))
 
 
