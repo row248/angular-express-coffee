@@ -1,4 +1,4 @@
-# Simple Blog based on Express Coffee Template 4 (1.4)
+# Simple Blog with Angularjs Expressjs Mongoose
 
 ## 
 

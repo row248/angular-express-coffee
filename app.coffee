@@ -1,7 +1,6 @@
 express = require 'express'
 http = require 'http'
 path = require 'path'
-less = require 'less'
 
 stylus = require 'stylus'
 assets = require 'connect-assets'
