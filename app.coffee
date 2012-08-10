@@ -24,10 +24,10 @@ app.configure ->
   app.use express.methodOverride()
   app.use express.cookieParser('652626bvhfdhghy52h5g')
   app.use express.session()
-  app.use app.router
   app.use require('stylus').middleware(__dirname + '/public')
     # app.use require('less-middleware')(src: __dirname + '/assets')
   app.use express.static(path.join(__dirname, 'public'))
+  app.use app.router
 
 
 app.configure "development", ->
@@ -59,8 +59,7 @@ app.put '/api/post/:id', api.editPost
 app.delete '/api/post/:id', api.deletePost
 
 # redirect all others to the index (HTML5 history)
-# app.get '*',  (req, res) ->
-#   res.render "index"
+app.get '*', routes.index
 
 http.createServer(app).listen app.get('port'), ->
   console.log 'Express server listening on port ' + app.get('port')

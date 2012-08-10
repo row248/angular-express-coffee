@@ -10,6 +10,7 @@
     , "connect-assets": ">= 2.2.1"
     , "stylus": ">= 0.28.0"
     , "markdown": ">= 0.3.3"
+    , "which": "*"
   }, "scripts": {
     "start": "coffee app.coffee",
     "test": "mocha --require should --compilers coffee:coffee-script --colors"
