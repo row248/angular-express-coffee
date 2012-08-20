@@ -1,9 +1,9 @@
-div#my-modal.modal
+div#my-modal.modal.hide
   .modal-header
-      button.close(type='button', data-dismiss='modal') ×
+      button.close(type='button', data-dismiss='modal', ng-click='cancel()') ×
       h3 Are you sure?
     .modal-body
       p Are you sure you want to delete this post?
     .modal-footer
-      a.btn(href='#', data-dismiss='modal', ng-click='cancel()') Cancel
+      a.btn(href='#', data-dismiss='modal', ng-click='cancelDelete()') Cancel
       a.btn.btn-primary(href='#', ng-click='deletePost()') Delete

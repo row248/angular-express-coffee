@@ -12,8 +12,6 @@ mongoose = require 'mongoose'
 db = null
 app = express()
 
-# app.use assets()
-
 app.configure ->
   app.set 'port', process.env.PORT or 3000
   app.set 'views', __dirname + '/views'
@@ -25,7 +23,6 @@ app.configure ->
   app.use express.cookieParser('652626bvhfdhghy52h5g')
   app.use express.session()
   app.use require('stylus').middleware(__dirname + '/public')
-    # app.use require('less-middleware')(src: __dirname + '/assets')
   app.use express.static(path.join(__dirname, 'public'))
   app.use app.router
 
@@ -35,20 +32,7 @@ app.configure "development", ->
     dumpExceptions: true
     showStack: true
   )
-  db = mongoose.connect 'mongodb://user:user@ds035037.mongolab.com:35037/angular-blog'
-
-app.configure "test", ->
-  app.use express.errorHandler(
-    dumpExceptions: true
-    showStack: true
-  )
   db = mongoose.connect 'mongodb://user:user@ds037007.mongolab.com:37007/angular-blog-test'
-
-app.configure "production", ->
-  app.use express.errorHandler()
-  db = mongoose.connect 'mongodb://user:user@ds035037.mongolab.com:35037/angular-blog'
-
-
 
  # Routes
 app.get '/', routes.index

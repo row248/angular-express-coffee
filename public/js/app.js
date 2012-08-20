@@ -15,14 +15,6 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives'])
       templateUrl: '/partials/newPost',
       controller: 'CreatePostCtrl'
     })
-    .when('/editPost/:id', {
-      templateUrl: '/partials/editPost',
-      controller: 'EditPostCtrl'
-    })
-    .when('/deletePost/:id', {
-      templateUrl: '/partials/deletePost',
-      controller: 'DeletePostCtrl'
-    })
     .otherwise({
       redirectTo: '/'
     });

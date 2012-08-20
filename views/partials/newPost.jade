@@ -1,15 +1,1 @@
-form.form-horizontal(name='form')
-  fieldset
-    legend Write a new post
-    div.control-group(ng-class="{error: form.title.$invalid}")
-      label.control-label(for='title') Title
-      div.controls
-        input.input-xlarge(ng-model='post.title', name='title', type='text', required='')
-    div.control-group(ng-class="{error: form.content.$invalid}")
-      label.control-label(for='content') Content
-      div.controls
-        textarea.input-xlarge(ng-model='post.content', name='content', rows='5', required='', ng-minlength='6')
-        span.error(ng-show="form.content.$error.minlength", style="padding-left:10px") Too short!
-    div.form-actions
-      button.btn.btn-primary(ng-click='savePost()', ng-disabled='form.$invalid') Save
-      button.btn(ng-click='cancel()') Cancel
+include _form

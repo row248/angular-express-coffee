@@ -1,0 +1,16 @@
+form.form-horizontal
+  fieldset
+    legend(ng-show="post._id") Edit post
+    legend(ng-show="!post._id") New post
+    div.control-group(ng-class="{error: pform.title.$invalid}")
+      label.control-label(for='title') Title
+      div.controls
+        input.input-xlarge(ng-model='post.title', name='title', type='text', required='')
+    div.control-group(ng-class="{error: pform.content.$invalid}")
+      label.control-label(for='content') Content
+      div.controls
+        textarea.input-xlarge(ng-model='post.content', name='content', rows='5', required='', ng-minlength='6')
+        span.error(ng-show="pform.content.$error.minlength", style="padding-left:10px") Too short!
+    div.form-actions
+      button.btn.btn-primary(ng-click='savePost()', ng-disabled='isUnchanged(post) || pform.$invalid') Save
+      button.btn(ng-click='cancel()') Cancel
