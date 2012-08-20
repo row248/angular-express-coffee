@@ -38,20 +38,12 @@ angular.module('myApp').controller('ReadPostCtrl', function($scope, $http, $loca
     });
   };
 
-
-  $scope.deleteDialog = function() {
-    $('#my-modal').show();
-  };
-
   $scope.deletePost = function() {
     return $http["delete"]('/api/post/' + $routeParams.id).success(function(data) {
       return $location.url("/");
     });
   };
 
-  $scope.cancelDelete = function() {
-    $('#my-modal').hide();
-  };
 
   $scope.saveComment = function() {
     return $http.post('/api/post/' + $routeParams.id + '/newComment', $scope.post).success(function(data) {

@@ -3,7 +3,7 @@ section(ng-hide='$scope.edit')
   div {{post.content}}
   div.form-actions
     a.btn.btn-primary(href='#', ng-click='$scope.edit=true') Edit
-    a.btn.btn-danger(href='#', ng-click='deleteDialog()') Delete
+    a.btn.btn-danger(href='#', ng-click='$scope.delete=true') Delete
 
 div(ng-show='$scope.edit')
   include _form
