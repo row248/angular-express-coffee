@@ -1,11 +1,11 @@
-section#view-post
+section(ng-hide='$scope.edit')
   h3 {{post.title}}
   div {{post.content}}
   div.form-actions
-    a.btn.btn-primary(href='#', ng-click='editDialog()') Edit
+    a.btn.btn-primary(href='#', ng-click='$scope.edit=true') Edit
     a.btn.btn-danger(href='#', ng-click='deleteDialog()') Delete
 
-div#edit-post.hide
+div(ng-show='$scope.edit')
   include _form
 
 include _comments

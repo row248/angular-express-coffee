@@ -12,5 +12,5 @@ form.form-horizontal
         textarea.input-xlarge(ng-model='post.content', name='content', rows='5', required='', ng-minlength='6')
         span.error(ng-show="pform.content.$error.minlength", style="padding-left:10px") Too short!
     div.form-actions
-      button.btn.btn-primary(ng-click='savePost()', ng-disabled='isUnchanged(post) || pform.$invalid') Save
-      button.btn(ng-click='cancel()') Cancel
+      button.btn.btn-primary(ng-click='savePost();$scope.edit=false', ng-disabled='isUnchanged(post) || pform.$invalid') Save
+      button.btn(ng-click='cancel();$scope.edit=false') Cancel

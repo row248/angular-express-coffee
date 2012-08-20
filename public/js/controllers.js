@@ -25,14 +25,9 @@ angular.module('myApp').controller('ReadPostCtrl', function($scope, $http, $loca
     return $scope.post = data.post;
   });
 
-  $scope.editDialog = function() {
-    show_form();
-  };
-
   $scope.savePost = function() {
     return $http.put("/api/post/" + $routeParams.id, $scope.post).success(function(data) {
       $scope.post = data.post;
-      hide_form();
     });
   };
 
@@ -41,19 +36,7 @@ angular.module('myApp').controller('ReadPostCtrl', function($scope, $http, $loca
     $http.get("/api/post/" + $routeParams.id).success(function(data) {
       return $scope.post = data.post;
     });
-    hide_form();
   };
-
-  function show_form() {
-    $('#edit-post').show();
-    $('#view-post').hide();
-  };
- 
-  function hide_form() {
-    $('#edit-post').hide();
-    $('#view-post').show();
-  };
-
 
 
   $scope.deleteDialog = function() {
