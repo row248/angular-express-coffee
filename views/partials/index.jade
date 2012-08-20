@@ -2,6 +2,8 @@
 div(ng-repeat='post in posts')
   a(href='/post/{{post._id}}')
     h2 {{post.title}}
-  div.post-content {{post.content}}
+  div.post-content {{post.content.substr(0, 600)}}
+    span(ng-show='post.content.length > 600')
+      a(href="/post/{{post._id}}")…
   div.pull-right
     a(href="/post/{{post._id}}#comments") Comments ({{post.comments.length}})
