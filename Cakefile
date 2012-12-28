@@ -12,7 +12,7 @@ reset = '\x1B[0m'
 pkg = JSON.parse fs.readFileSync('./package.json')
 testCmd = pkg.scripts.test
 startCmd = pkg.scripts.start
-  
+
 
 log = (message, color, explanation) ->
   console.log color + message + reset + ' ' + (explanation or '')
@@ -38,9 +38,9 @@ test = (callback) ->
     './server'
   ]
   try
-    cmd = which.sync 'mocha' 
+    cmd = which.sync 'mocha'
     spec = spawn cmd, options
-    spec.stdout.pipe process.stdout 
+    spec.stdout.pipe process.stdout
     spec.stderr.pipe process.stderr
     spec.on 'exit', (status) -> callback?() if status is 0
   catch err
@@ -51,7 +51,7 @@ task 'docs', 'Generate annotated source code with Docco', ->
   fs.readdir 'src', (err, contents) ->
     files = ("src/#{file}" for file in contents when /\.coffee$/.test file)
     try
-      cmd = which.sync 'docco' 
+      cmd = which.sync 'docco'
       docco = spawn cmd, files
       docco.stdout.pipe process.stdout
       docco.stderr.pipe process.stderr
@@ -73,7 +73,7 @@ task 'test', 'Run Mocha tests', ->
 task 'dev', 'start dev env', ->
   # watch_coffee
   options = ['-c', '-b', '-w', '-o', 'app', 'src']
-  cmd = which.sync 'coffee'  
+  cmd = which.sync 'coffee'
   coffee = spawn cmd, options
   coffee.stdout.pipe process.stdout
   coffee.stderr.pipe process.stderr
@@ -84,4 +84,4 @@ task 'dev', 'start dev env', ->
   supervisor.stderr.pipe process.stderr
   log 'Watching js files and running server', green
 
-  
+
